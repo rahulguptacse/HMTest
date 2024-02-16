@@ -8,10 +8,10 @@
     <artifactId>mag-automation-poc</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <properties>
+    <com.mag.poc.properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-    </properties>
+    </com.mag.poc.properties>
     <dependencies>
         <dependency>
         <groupId>io.github.bonigarcia</groupId>
