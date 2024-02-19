@@ -2,8 +2,12 @@ package com.mag.poc.stepDefs;
 import com.mag.poc.pages.BasePage;
 import com.mag.poc.pages.homePage.HamBurgerPage;
 import com.mag.poc.selenium.DriverActions;
+import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,7 +18,6 @@ import java.util.Properties;
 
 public class HamBurger extends BasePage {
     HamBurgerPage hamBurgerPage;
-    DriverActions driverActions;
     String url ;
 
     @Before
@@ -34,12 +37,19 @@ public class HamBurger extends BasePage {
         hamBurgerPage.openURL(url);
     }
 
-    @Given("user click on the ham burger menu")
+    @When("user click on the ham burger menu")
     public void userClickOnHamBurgerMenu() {
         hamBurgerPage.clickHamBurgerMenu();
     }
 
-    @Given("address detail are displayed")
+    @Then("address detail are displayed")
     public void verifyAddressDetails() {
+        Assert.assertEquals("Designer Outlet Serravalle\n" +
+                "Via della Moda 1 Serravalle Scrivia 15069", hamBurgerPage.getAddress());
+    }
+
+    @After
+    public void tearDown(){
+        hamBurgerPage.closeBrowser();
     }
 }
