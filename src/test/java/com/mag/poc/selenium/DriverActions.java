@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import com.mag.poc.exceptions.InvalidInputException;
 import com.mag.poc.exceptions.TestRunnerException;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;

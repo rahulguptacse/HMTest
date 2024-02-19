@@ -7,11 +7,6 @@
     <groupId>org.example</groupId>
     <artifactId>mag-automation-poc</artifactId>
     <version>1.0-SNAPSHOT</version>
-
-    <com.mag.poc.properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-    </com.mag.poc.properties>
     <dependencies>
         <dependency>
         <groupId>io.github.bonigarcia</groupId>
@@ -34,4 +29,25 @@
         <version>4.8.1</version>
     </dependency>
     </dependencies>
+    <build>
+        <defaultGoal>clean verify</defaultGoal>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.9.0</version>
+                <configuration>
+                    <release>${java.version}</release>
+                    <encoding>UTF-8</encoding>
+                    <source>17</source>
+                    <target>17</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>3.0.0-M5</version>
+            </plugin>
+        </plugins>
+    </build>
 </project>
