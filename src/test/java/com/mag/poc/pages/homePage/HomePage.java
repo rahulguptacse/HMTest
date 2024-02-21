@@ -9,8 +9,9 @@ import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+import static org.junit.Assert.assertTrue;
 
 public class HomePage extends BasePage {
 
@@ -69,6 +70,10 @@ public class HomePage extends BasePage {
         return By.xpath("//div[@class='Socials']/a/i");
     }
 
+    private By footerLink() {
+        return By.xpath("//div[@class='Footer__section__final__links']/a");
+    }
+
 
     public void clickHamBurgerMenu() {
         elementActions.click(find.findElement(hamBurgerMenu()));
@@ -81,6 +86,9 @@ public class HomePage extends BasePage {
 
     public void clickVisit() {
         elementActions.click(find.findElement(visit()));
+    }
+    public void scrollToFooter() {
+        driverActions.scrollToBottom();
     }
 
     public void clickLocalOption() {
@@ -112,6 +120,11 @@ public class HomePage extends BasePage {
 
     public String getHomePageHeader()
     {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return find.findElement(homePageHeader(),false, Duration.ofSeconds(2)).getText();
     }
     public void openURL(String url){
@@ -138,6 +151,9 @@ public class HomePage extends BasePage {
         }
         assert driverActions.getWindowHandles().size() == 2;
         assert driverActions.getBrowserTitle().contains(text);
+    }
+    public List<WebElement> getFooterLinks() {
+        return find.findElements(footerLink(),false, Duration.ofSeconds(2));
     }
 
     public List<WebElement> getSocialItems() {

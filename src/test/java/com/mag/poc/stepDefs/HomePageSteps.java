@@ -28,7 +28,7 @@ public class HomePageSteps extends BasePage {
         properties.load(input);
         url = properties.getProperty("URL");
         String browser = properties.getProperty("Browser");
-        String device = System.getProperty("device");
+        String device = properties.getProperty("Device");
         setDriver(browser,device);
         homePage = new HomePage();
     }
@@ -81,6 +81,20 @@ public class HomePageSteps extends BasePage {
         homePage.clickFunActivityOption();
         homePage.clickLocalOption();
         homePage.clickVisitWebsiteOption();
+    }
+
+    @When("user scroll to footer")
+    public void userScrollToFooter(){
+        homePage.scrollToFooter();
+    }
+
+    @When("Footer items are displayed")
+    public void verifyFooter() {
+        List<WebElement> socialItems = homePage.getFooterLinks();
+        Assert.assertTrue(socialItems.get(0).getText().contains("Terms of service"));
+        Assert.assertTrue(socialItems.get(1).getText().contains("Privacy policy"));
+        Assert.assertTrue(socialItems.get(2).getText().contains("Log in"));
+
     }
 
     @After
