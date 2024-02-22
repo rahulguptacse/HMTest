@@ -12,9 +12,9 @@ Scenario: Verify address details under Ham Burger Menu
     Then "<URL>" is open
     Examples:
     |Link|URL|
-    |Boutiques|Stores|
+    |Boutiques|stores|
     |Your Visit|plan-your-visit|
-    |Things to Do |what-on|
+    |Things to Do |whats-on|
     |Eat & Drink   |food-drink|
     |Current Offers|offers    |
 

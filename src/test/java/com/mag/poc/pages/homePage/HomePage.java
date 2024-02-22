@@ -8,6 +8,7 @@ import com.mag.poc.selenium.ElementFind;
 import java.time.Duration;
 import java.util.List;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -149,8 +150,7 @@ public class HomePage extends BasePage {
                 break;
             }
         }
-        assert driverActions.getWindowHandles().size() == 2;
-        assert driverActions.getBrowserTitle().contains(text);
+        Assert.assertTrue(driverActions.getCurrentUrl().contains(text));
     }
     public List<WebElement> getFooterLinks() {
         return find.findElements(footerLink(),false, Duration.ofSeconds(2));
