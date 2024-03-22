@@ -1,4 +1,4 @@
-package com.mag.poc.selenium;
+package com.automation.test.selenium;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,9 +14,8 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class DriverFactory {
 	
-	private String browserType;
-	private WebDriver webDriver;
-	private String device;
+	private final String browserType;
+	private final String device;
 	
 	public DriverFactory (String browserType ,String device) {
 		this.browserType = browserType;
@@ -24,6 +23,7 @@ public class DriverFactory {
 	}
 	
 	public WebDriver setupWebDriver() {
+		WebDriver webDriver;
 		switch (browserType.toUpperCase()) {
 		case "CHROME":
 			WebDriverManager.chromedriver().setup();
@@ -85,9 +85,8 @@ public class DriverFactory {
 	}
 	
 	private InternetExplorerOptions getIEOptions() {
-		InternetExplorerOptions ieOptions = new InternetExplorerOptions();
-		
-		return ieOptions;
+
+		return new InternetExplorerOptions();
 	}
 	
 	private FirefoxOptions getFirefoxOptions() {

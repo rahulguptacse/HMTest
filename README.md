@@ -1,6 +1,6 @@
-# McArthurGlen automation proof of concept
+# CaZoo Car Search Moduke
 
-The primary objective of this POC is to showcase the ITG's ability to create front end automation framework for [Serravalle](https://www.mcarthurglen.com/it/outlets/it/designer-outlet-serravalle/)
+This is test to search car on Cazoo website
 
 ## How to run
 
@@ -8,7 +8,6 @@ The primary objective of this POC is to showcase the ITG's ability to create fro
 - JDk 17
 - Maven
 - Cucumber Java Plugin
-- Running Docker version of the application developed(mac-poc)
 - Maven Dependency installation(maven clean install)
 
 ### Ways to run the tests
